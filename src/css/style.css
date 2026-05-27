@@ -1,0 +1,172 @@
+/* 基础重置 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 页面整体大框架布局 */
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* 左侧占 2 份，右侧占 1 份 */
+  min-height: 100vh;
+}
+
+/* --- 左侧样式 --- */
+.main-content {
+  padding: 40px;
+  border-right: 1px solid #e5e5e5;
+}
+
+.section-title {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-item {
+  border-top: 1px solid #f0f0f0;
+  padding: 25px 0 35px 0;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.project-meta {
+  font-family: monospace; /* 模拟数字编号的极客感 */
+  font-size: 13px;
+}
+
+.project-id {
+  color: #000;
+}
+
+.project-name {
+  font-weight: 500;
+}
+
+.project-doc {
+  color: #666;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.project-icon {
+  color: #999;
+  font-size: 16px;
+}
+
+.project-desc {
+  color: #888; /* 偏淡的灰色文本 */
+  max-width: 680px;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.read-more {
+  font-size: 13px;
+  color: #222;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/* --- 右侧边栏样式 --- */
+.sidebar {
+  padding: 40px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+
+.email {
+  color: #000;
+  text-decoration: none;
+}
+
+.email:hover {
+  text-decoration: underline;
+}
+
+.sidebar-divider {
+  border: 0;
+  border-top: 1px solid #f0f0f0;
+  margin-bottom: 30px;
+}
+
+.biography p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 6px;   /* 段落间距依然保持紧凑的 6px */
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* ── 增大对比度 ── */
+
+/* 1. 上面两段（第1段和第2段）：纯黑 */
+.biography p:nth-of-type(1),
+.biography p:nth-of-type(2) {
+  color: #000000;        
+}
+
+/* 2. 后面合并完的那一大段（第3段）：极强对比的烟灰色 */
+.biography p:nth-of-type(3) {
+  color: #999999;        
+}
+
+/* 响应式：当屏幕较窄时转为单栏 */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .main-content {
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+  }
+}
+
+/* 移除 A 标签默认的下划线和颜色变蓝效果 */
+.project-item-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* 当鼠标悬停在整个项目上时，标题出现下划线，模拟高级的画廊/视觉网格点击感 */
+.project-item-link:hover .project-name {
+  color: #000;
+  text-decoration: underline;
+}
+
+.project-item-link:hover .project-desc {
+  color: #555; /* 描述文字颜色微调变深 */
+}
